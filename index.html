@@ -12,14 +12,15 @@
 </head>
 <body>
     <h2>Rock Paper Scissors: Code from scratch</h2>
+    <p>Score 5 points to win.</p>
     <p>By: Eli Jun S. Jonieca</p>
     <button onclick="playerPickRock()">Rock</button>
     <button onclick="playerPickPaper()">Paper</button>
     <button onclick="playerPickScissor()">Scissors</button>
 
     <div>
-        <p>PC: <span id="pcPick"></span></p>
         <p>Player: <span id="playerPick"></span></p>
+        <p>PC: <span id="pcPick"></span></p>
         <p id="winner">Winner: </p>
     </div>
 
@@ -29,11 +30,12 @@
 
     <script>
         let playerPick = "";
-        var pcPick = "";
-        var pick = ["Rock", "Paper", "Scissor"];
-        var winCount = ["Tie", "Player Wins", "PC Wins"];
-        var playerScore = 0;
-        var pcScore = 0;
+        let pcPick = "";
+        let playerScore = 0;
+        let pcScore = 0;
+        let pick = ["Rock", "Paper", "Scissor"];
+        let winCount = ["Tie", "Player Wins", "PC Wins"];
+        let showWin = '';
 
         console.log(`Pick any ${pick}`)
 
@@ -69,7 +71,7 @@
         }
 
         function playerPickRock(){
-            let playerPick = pick[0];
+            playerPick = pick[0];
             resetNumber();
             pcPickRange();
             console.log(`Player Picks ${playerPick}`);
@@ -77,25 +79,27 @@
 
             if(pcPick == "Rock"){
                 console.log(winCount[0]);
+                showWin = winCount[0];
             }
             else if (pcPick == "Paper"){
                 console.log(winCount[2]);
+                showWin = winCount[2];
                 pcScore += 1;
             }
 
             else if (pcPick == "Scissor"){
                 console.log(winCount[1]);
+                showWin = winCount[1];
                 playerScore += 1;
             }
 
             showScore();
             updateScorePrint();
-            document.getElementById("playerPick").innerText = playerPick;
             limit();
         };
 
         function playerPickPaper(){
-            let playerPick = pick[1];
+            playerPick = pick[1];
             resetNumber();
             pcPickRange();
             console.log(`Player Picks ${playerPick}`);
@@ -103,25 +107,27 @@
 
             if(pcPick == "Rock"){
                 console.log(winCount[1]);
+                showWin = winCount[1];
                 playerScore += 1;
             }
             else if (pcPick == "Paper"){
                 console.log(winCount[0]);
+                showWin = winCount[0];
             }
 
             else if (pcPick == "Scissor"){
                 console.log(winCount[2]);
+                showWin = winCount[2];
                 pcScore += 1;
             }
 
             showScore();
             updateScorePrint();
-            document.getElementById("playerPick").innerText = playerPick;
             limit();
         };
 
         function playerPickScissor(){
-            let playerPick = pick[2];
+            playerPick = pick[2];
             resetNumber();
             pcPickRange();
             console.log(`Player Picks ${playerPick}`);
@@ -129,36 +135,39 @@
 
             if(pcPick == "Rock"){
                 console.log(winCount[2]);
+                showWin = winCount[2];
                 pcScore += 1;
             }
             else if (pcPick == "Paper"){
                 console.log(winCount[1]);
+                showWin = winCount[1];
                 playerScore += 1;
             }
 
             else if (pcPick == "Scissor"){
                 console.log(winCount[0]);
+                showWin = winCount[0];
             }
 
             showScore();
             updateScorePrint();
-            document.getElementById("playerPick").innerText = playerPick;
             limit();
         };
     
         function updateScorePrint(){
             document.getElementById("playerScore").innerText = `Player Score: ${playerScore}`;
             document.getElementById("pcScore").innerText = `PC Score: ${pcScore}`;
+            document.getElementById("playerPick").innerText = playerPick;
             document.getElementById("pcPick").innerText = pcPick;
-            document.getElementById("winner").innerText = `Winner: ${showScore()}`;
+            document.getElementById("winner").innerText = `Winner: ${showWin}`;
         }
 
         function limit(){
-            if(playerScore == 10){
+            if(playerScore == 5){
                 alert(`PLayer Wins! \n Player Score: ${playerScore} | PC Score: ${pcScore}`);
                 resetScore();
             }
-        else if(pcScore == 10){
+        else if(pcScore == 5){
             alert(`PC Wins! \n Player Score: ${playerScore} | PC Score: ${pcScore}`);
                 resetScore();
             }
