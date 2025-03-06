@@ -1,3 +1,9 @@
+#playerSideShowPick {
+    transform: scaleX(-1);
+}
 body{
     text-align: center;
+}
+#playerscore{
+    float: right;
 }

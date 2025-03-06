@@ -2,6 +2,9 @@ let playerPick = "";
 let pcPick = "";
 let playerScore = 0;
 let pcScore = 0;
+let changeImage = document.getElementById("changeImage");
+let changeImagePC = document.getElementById("PcChangeImage");
+
 let pick = ["Rock", "Paper", "Scissor"];
 let winCount = ["Tie", "Player Wins", "PC Wins"];
 let showWin = '';
@@ -12,6 +15,18 @@ let pcPickCalculation;
 
 function showScore(){
 console.log(`Player: ${playerScore}; PC: ${pcScore}`);
+}
+
+function changePcImage(){
+    if(pcPick == pick[0]){
+        changeImagePC.src = "assets/rock.png";
+    }
+    else if (pcPick == pick[1]){
+        changeImagePC.src = "assets/paper.png";
+    }
+    else if (pcPick == pick[2]){
+        changeImagePC.src = "assets/scissor.png";
+    }
 }
 
 function resetNumber(){
@@ -33,6 +48,8 @@ function pcPickRange(){
 }
 
 function resetScore(){
+    changeImage.src = "assets/rock.png";
+    changeImagePC.src = "assets/rock.png";
     playerScore = 0;
     pcScore = 0;
     playerPick = "";
@@ -46,8 +63,10 @@ function playerPickRock(){
     playerPick = pick[0];
     resetNumber();
     pcPickRange();
+    changePcImage()
     console.log(`Player Picks ${playerPick}`);
     console.log(`PC Picks ${pcPick}`);
+    changeImage.src = "assets/rock.png";
 
     if(pcPick == "Rock"){
         console.log(winCount[0]);
@@ -74,8 +93,10 @@ function playerPickPaper(){
     playerPick = pick[1];
     resetNumber();
     pcPickRange();
+    changePcImage()
     console.log(`Player Picks ${playerPick}`);
     console.log(`PC Picks ${pcPick}`);
+    changeImage.src = "assets/paper.png";
 
     if(pcPick == "Rock"){
         console.log(winCount[1]);
@@ -102,8 +123,10 @@ function playerPickScissor(){
     playerPick = pick[2];
     resetNumber();
     pcPickRange();
+    changePcImage()
     console.log(`Player Picks ${playerPick}`);
     console.log(`PC Picks ${pcPick}`);
+    changeImage.src = "assets/scissor.png";
 
     if(pcPick == "Rock"){
         console.log(winCount[2]);
@@ -129,8 +152,10 @@ function playerPickScissor(){
 function updateScorePrint(){
     document.getElementById("playerScore").innerText = `Player Score: ${playerScore}`;
     document.getElementById("pcScore").innerText = `PC Score: ${pcScore}`;
-    document.getElementById("playerPick").innerText = playerPick;
-    document.getElementById("pcPick").innerText = pcPick;
+
+    document.getElementById("playerPick").innerText = `Player picks ${playerPick}`;
+    document.getElementById("pcPick").innerText = `PC picks ${pcPick}`;
+
     document.getElementById("winner").innerText = `Winner: ${showWin}`;
 }
 

@@ -5,25 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e2f1e1c366.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <h2>Rock Paper Scissors: Code from scratch</h2>
-    <p>Score 5 points to win.</p>
-    <p>By: Eli Jun S. Jonieca</p>
-    <button onclick="playerPickRock()">Rock</button>
-    <button onclick="playerPickPaper()">Paper</button>
-    <button onclick="playerPickScissor()">Scissors</button>
+    <main>
+        <div class="container">
+            <h2>Rock Paper Scissors: Code from scratch</h2>
+            <p>Score 5 points to win.</p>
+            <div class="row" id="wrap">
+                <div class="col d-flex align-items-center order-last order-md-first" id="playerSide" style="background-color: blue;">
 
+                        <div class="row">
+                            <div class="col col-md-2 align-items-center order-last order-md-first" id="pickSection" style="background-color: rgb(0, 0, 0);">
+                                <div class="row align-items-center">
+                                    <button onclick="playerPickRock()">Rock</button>
+                                    <button onclick="playerPickPaper()">Paper</button>
+                                    <button onclick="playerPickScissor()">Scissors</button>
+                                </div>
+                            </div>
+                            <div class="col-md-10" id="showPickSection">
+                                <div id="playerScore">Player Score: 0</div>
+                                <div class="">
+                                    <img id="changeImage" class="float-start" src="assets/rock.png" alt="" style="transform: scaleX(-1);" width="330px">
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="col" id="pcSide" style="background-color: blueviolet;">
+
+                        <div class="row">
+                            <div class="col-md-10" id="showPickSection">
+                                <div id="pcScore">PC Score: 0</div>
+                                <div class="float-end">
+                                    <img id="PcChangeImage" class="float-end" src="assets/rock.png" alt="" width="330px">
+                                </div>
+                            </div>
+                            <div class="col-md-2" id="emptySection" style="background-color: rgb(0, 0, 0);">
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
     <div>
-        <p>Player: <span id="playerPick"></span></p>
-        <p>PC: <span id="pcPick"></span></p>
+        <div id="playerPick">Player:</div>
+        <div id="pcPick">PC:</div>
         <p id="winner">Winner: </p>
     </div>
-
-    <div id="playerScore">Player Score: 0</div>
-    <div id="pcScore">PC Score: 0</div>
     <button onclick="resetScore()">Reset Score</button>
 
     <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+    <footer>
+        by: Eli Jun Butch S. Jonieca
+        <a href="https://www.elijun-portfolio.vercel.app">checkout my portfolio</a>
+    </footer>
 </html>
