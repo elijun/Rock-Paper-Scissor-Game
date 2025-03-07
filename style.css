@@ -1,10 +1,15 @@
 #playerSideShowPick {
     transform: scaleX(-1);
 }
+
+main{
+    margin-top: 5%;
+}
 body{
     text-align: center;
     background-color: black;
     color: antiquewhite;
+
 }
 #playerscore{
     float: right;
