@@ -63,7 +63,7 @@ function playerPickRock(){
     playerPick = pick[0];
     resetNumber();
     pcPickRange();
-    changePcImage()
+    changePcImage();
     console.log(`Player Picks ${playerPick}`);
     console.log(`PC Picks ${pcPick}`);
     changeImage.src = "assets/rock.png";
@@ -86,6 +86,7 @@ function playerPickRock(){
 
     showScore();
     updateScorePrint();
+    died();
     limit();
 };
 
@@ -93,7 +94,7 @@ function playerPickPaper(){
     playerPick = pick[1];
     resetNumber();
     pcPickRange();
-    changePcImage()
+    changePcImage();
     console.log(`Player Picks ${playerPick}`);
     console.log(`PC Picks ${pcPick}`);
     changeImage.src = "assets/paper.png";
@@ -116,6 +117,7 @@ function playerPickPaper(){
 
     showScore();
     updateScorePrint();
+    died();
     limit();
 };
 
@@ -123,7 +125,7 @@ function playerPickScissor(){
     playerPick = pick[2];
     resetNumber();
     pcPickRange();
-    changePcImage()
+    changePcImage();
     console.log(`Player Picks ${playerPick}`);
     console.log(`PC Picks ${pcPick}`);
     changeImage.src = "assets/scissor.png";
@@ -146,6 +148,7 @@ function playerPickScissor(){
 
     showScore();
     updateScorePrint();
+    died();
     limit();
 };
 
@@ -159,13 +162,42 @@ function updateScorePrint(){
     document.getElementById("winner").innerText = `Winner: ${showWin}`;
 }
 
+
 function limit(){
-    if(playerScore == 5){
-        alert(`Player Wins! \n Player Score: ${playerScore} | PC Score: ${pcScore}`);
-        resetScore();
+    if(playerScore == 5 || pcScore == 5){
+        setTimeout(function() {
+            if (playerScore == 5) {
+                alert("Player Wins! \n Player Score: " + playerScore + " | PC Score: " + pcScore);
+            } else {
+                alert("PC Wins! \n Player Score: " + playerScore + " | PC Score: " + pcScore);
+            }
+            resetScore();
+        }, 500);
     }
-else if(pcScore == 5){
-    alert(`PC Wins! \n Player Score: ${playerScore} | PC Score: ${pcScore}`);
-        resetScore();
+};
+
+function died(){
+    if (showWin == winCount[1]){
+        //IF PLAYER WINS
+        if(playerPick == pick[0]){
+            changeImagePC.src = "assets/scissorx.png";
+        }
+        else if(playerPick == pick[1]) {
+            changeImagePC.src = "assets/rockx.png";
+        }
+        else if(playerPick == pick[2]) {
+            changeImagePC.src = "assets/paperx.png";
+        }
+    } else if(showWin == winCount[2]) {
+        //IF PC WINS
+        if(playerPick == pick[0]){
+            changeImage.src = "assets/rockx.png";
+        }
+        else if(playerPick == pick[1]) {
+            changeImage.src = "assets/paperx.png";
+        }
+        else if(playerPick == pick[2]) {
+            changeImage.src = "assets/scissorx.png";
+        }
     }
 };

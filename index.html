@@ -9,11 +9,12 @@
     <script src="https://kit.fontawesome.com/e2f1e1c366.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class="bg-dark text-light">
     <main>
         <div class="container">
-            <h2>Rock Paper Scissors: Code from scratch</h2>
-            <p>Score 5 points to win.</p>
+            <h2 class="h1">Bato Bato Pik!</h2>
+            <p>Coded using JavaScript from scratch.</p>
+            <p class="h2">Score 5 points to win.</p>
             <div class="row" id="wrap">
                 <div class="col d-flex align-items-center order-last order-md-first" id="playerSide" style="background-color: blue;">
 
@@ -25,8 +26,8 @@
                                     <button onclick="playerPickScissor()">Scissors</button>
                                 </div>
                             </div>
-                            <div class="col-md-10" id="showPickSection">
-                                <div id="playerScore">Player Score: 0</div>
+                            <div class="col-md-10 pb-4" id="showPickSection">
+                                <div class="fs-1" id="playerScore">Player Score: 0</div>
                                 <div class="">
                                     <img id="changeImage" class="float-start" src="assets/rock.png" alt="" style="transform: scaleX(-1);" width="330px">
                                 </div>
@@ -34,11 +35,11 @@
                         </div>
 
                 </div>
-                <div class="col" id="pcSide" style="background-color: blueviolet;">
+                <div class="col" id="pcSide" style="background-color: rgb(131, 131, 131);">
 
                         <div class="row">
-                            <div class="col-md-10" id="showPickSection">
-                                <div id="pcScore">PC Score: 0</div>
+                            <div class="col-md-10 pb-4" id="showPickSection">
+                                <div class="fs-1" id="pcScore">PC Score: 0</div>
                                 <div class="float-end">
                                     <img id="PcChangeImage" class="float-end" src="assets/rock.png" alt="" width="330px">
                                 </div>
@@ -63,6 +64,6 @@
 </body>
     <footer>
         by: Eli Jun Butch S. Jonieca
-        <a href="https://www.elijun-portfolio.vercel.app">checkout my portfolio</a>
+        <a href="https://elijun-portfolio.vercel.app/">checkout my portfolio</a>
     </footer>
 </html>

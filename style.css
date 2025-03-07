@@ -3,7 +3,14 @@
 }
 body{
     text-align: center;
+    background-color: black;
+    color: antiquewhite;
 }
 #playerscore{
     float: right;
+}
+
+#pcScore, #playerScore{
+    color: antiquewhite;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
